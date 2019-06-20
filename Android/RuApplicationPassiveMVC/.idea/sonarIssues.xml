@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/contract/FeedbackContract.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/presenter/FeedbackPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/service/FeedbackService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/FormCalendarActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/FormDishActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/FormFeedbackActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/MainManagerActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/fragment/FeedbackFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/fragment/NoticeFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/java/br/ufop/ruapplicationmvp/view/fragment/WeekMenuFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/AndroidStudioProjects/RuApplicationMVP/app/src/main/res/layout/fragment_feedback.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

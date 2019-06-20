@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.NameDate" />
+
+        <variable
+            name="meal"
+            type="br.ufop.ruapplicationmvvm.model.entity.Meal" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_item_calendar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/white"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/layout_item_calendar_day_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle_drawable"
+                android:minWidth="80dp"
+                android:minHeight="80dp">
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_month"
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="@{NameDate.monthName(meal.month)}"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_day"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_item_calendar_month"
+                    android:layout_centerHorizontal="true"
+                    android:maxWidth="200dp"
+                    android:maxLines="1"
+                    android:text="12"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_year"
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_item_calendar_day"
+                    android:layout_centerHorizontal="true"
+                    android:maxWidth="200dp"
+                    android:maxLines="1"
+                    android:text="2018"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/layout_item_calendar_day_container"
+                android:minHeight="60dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_name"
+                    style="@style/Base.TextAppearance.AppCompat.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@{NameDate.dayName(meal.numDay)}" />
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_type"
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="Jantar" />
+
+                <TextView
+                    android:id="@+id/layout_item_calendar_reason"
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{meal.reason}" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

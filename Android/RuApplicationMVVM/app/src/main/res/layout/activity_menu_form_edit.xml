@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.ImageUtil" />
+
+        <variable
+            name="dish"
+            type="br.ufop.ruapplicationmvvm.model.entity.Dish" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/menu_form_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.FormMenuActivity">
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:text="@string/caption_select_prato" />
+
+        <Spinner
+            android:id="@+id/menu_form_spinner"
+            style="@style/Base.Widget.AppCompat.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorSelect" />
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/caption_vizualizacao" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+
+            <ImageView
+                android:id="@+id/menu_form_imageview"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:imageUrl="@{dish.photo}" />
+
+            <TextView
+                android:id="@+id/menu_form_name"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_toRightOf="@+id/menu_form_imageview"
+                android:text="@{dish.name}" />
+
+            <TextView
+                android:id="@+id/menu_form_description"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/menu_form_name"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toRightOf="@+id/menu_form_imageview"
+                android:text="@{dish.description}" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.TextInputEditTextBindingUtil.Rule" />
+
+        <variable
+            name="loginform"
+            type="br.ufop.ruapplicationmvvm.model.info.LoginForm" />
+
+        <variable
+            name="viewmodel"
+            type="br.ufop.ruapplicationmvvm.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/login_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/login_form_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_large"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/icon_description"
+                        android:src="@mipmap/restaurant" />
+
+                    <TextView
+                        style="@style/Base.TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/icon_text"
+                        android:textSize="24sp" />
+
+
+                    <LinearLayout
+                        android:id="@+id/login_form"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/margin_large">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/login_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/label_email"
+                            app:errorMsg='@{"Preencha o campo email corretamente."}'
+                            app:validation="@{Rule.EMAIL_RULE}">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/email_icon"
+                                android:drawableLeft="@drawable/email_icon"
+                                android:drawablePadding="10dp"
+                                android:imeOptions="actionNext"
+                                android:inputType="textEmailAddress"
+                                android:text="@={loginform.email}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/login_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/label_password"
+                            app:errorMsg='@{"Preencha o campo senha corretamente."}'
+                            app:passwordToggleEnabled="true"
+                            app:validation="@{Rule.PASSWORD_RULE}">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/lock_icon"
+                                android:drawableLeft="@drawable/lock_icon"
+                                android:drawablePadding="10dp"
+                                android:imeOptions="actionDone"
+                                android:inputType="textPassword"
+                                android:maxLines="1"
+                                android:text="@={loginform.password}" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/login_recover_password"
+                            style="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="15dp"
+                            android:text="@string/forgot_password" />
+
+                        <Button
+                            android:id="@+id/login_btn_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/rounded_button_commit"
+                            android:minWidth="250dp"
+                            android:minHeight="50dp"
+                            android:onClick="@{()-> viewmodel.login(loginform)}"
+                            android:text="@string/login_button"
+                            android:textColor="@android:color/white" />
+
+                        <Button
+                            android:id="@+id/login_btn_register"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/rounded_button_yellow"
+                            android:minWidth="250dp"
+                            android:minHeight="50dp"
+                            android:onClick="onRegisterButtonClick"
+                            android:text="@string/register_button"
+                            android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>
+

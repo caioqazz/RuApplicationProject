@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<br.ufop.ruapplicationpassivemvc.view.FormMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/menu_form_container"
+    tools:context="br.ufop.ruapplicationpassivemvc.activity.implementation.MenuFormActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caption_select_prato"
+        android:layout_margin="@dimen/margin_medium"
+        style="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+    <Spinner
+        android:id="@+id/menu_form_spinner"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_medium"
+        style="@style/Base.Widget.AppCompat.Spinner"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorSelect"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caption_vizualizacao"
+        android:layout_margin="10dp"
+        style="@style/Base.TextAppearance.AppCompat.Caption"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <ImageView
+            android:id="@+id/menu_form_imageview"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            />
+
+        <TextView
+            android:id="@+id/menu_form_name"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_toRightOf="@+id/menu_form_imageview"
+            />
+
+        <TextView
+            android:id="@+id/menu_form_description"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menu_form_name"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_toRightOf="@+id/menu_form_imageview" />
+
+
+    </RelativeLayout>
+</br.ufop.ruapplicationpassivemvc.view.FormMenuView>

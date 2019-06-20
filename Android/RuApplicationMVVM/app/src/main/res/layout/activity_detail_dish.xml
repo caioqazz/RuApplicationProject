@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.ClientTypeUtil" />
+
+        <import type="br.ufop.ruapplicationmvvm.util.ImageUtil" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dish"
+            type="br.ufop.ruapplicationmvvm.model.entity.Dish" />
+
+        <variable
+            name="user"
+            type="br.ufop.ruapplicationmvvm.model.entity.User" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/detail_dish_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".view.DetailDishActivity">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_small"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="@dimen/margin_small">
+
+                        <ImageView
+                            android:id="@+id/detail_dish_imageview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/image_descripiton_dish"
+                            android:maxHeight="300dp"
+                            android:src="@drawable/image"
+                            app:imageUrl="@{dish.photo}" />
+
+
+                        <TextView
+                            android:id="@+id/detail_dish_name"
+                            style="@style/Base.TextAppearance.AppCompat.Headline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/detail_dish_imageview"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            android:maxLines="1"
+                            android:text="@{dish.name}" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/detail_dish_description"
+                        style="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@{dish.description}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@color/colorSelect" />
+
+                    <TextView
+                        android:id="@+id/detail_dish_caption"
+                        style="@style/Base.TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small"
+                        android:layout_marginBottom="@dimen/margin_small"
+
+                        android:text='@{ClientTypeUtil.isClient(user.type) ?"Avalie esse prato" : "Média"}' />
+
+                    <RatingBar
+                        android:id="@+id/detail_dish_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:isIndicator="false"
+                        android:numStars="5" />
+
+                    <CheckBox
+                        android:id="@+id/detail_dish_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:text="@string/checkbox_dish"
+                        android:visibility="@{ClientTypeUtil.isClient(user.type) ?  View.VISIBLE :  View.GONE }" />
+
+
+                    <EditText
+                        android:id="@+id/detail_dish_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:autofillHints="@string/hint_comentario_prato"
+                        android:hint="@string/hint_comentario_prato"
+                        android:inputType="textAutoComplete"
+                        android:lines="2"
+                        android:maxLines="3"
+                        android:paddingBottom="@dimen/margin_large"
+                        android:visibility="@{ClientTypeUtil.isClient(user.type) ?  View.VISIBLE :  View.GONE }" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

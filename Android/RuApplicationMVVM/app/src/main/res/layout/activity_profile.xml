@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.ImageUtil" />
+
+        <variable
+            name="user"
+            type="br.ufop.ruapplicationmvvm.model.entity.User" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/profile_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="view.ProfileActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="3dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_gravity="center_horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_imageview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="280dp"
+                            android:layout_centerHorizontal="true"
+                            android:maxHeight="280dp"
+                            android:minWidth="280dp"
+                            android:src="@mipmap/user"
+                            app:civ_border_color="@android:color/black"
+                            app:imageUrl="@{user.photo}" />
+
+                        <ImageButton
+                            android:id="@+id/profile_camera_button"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_alignRight="@+id/profile_imageview"
+                            android:layout_alignBottom="@+id/profile_imageview"
+                            android:background="@mipmap/dark_yellow_camera" />
+
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_name">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@mipmap/person_icon"
+                            android:drawableLeft="@mipmap/person_icon"
+                            android:drawablePadding="10dp"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:text="@{user.name}" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/email_icon"
+                            android:drawableLeft="@drawable/email_icon"
+                            android:drawablePadding="10dp"
+                            android:enabled="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:text="@{user.email}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_cpf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_cpf">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/email_icon"
+                            android:drawableLeft="@drawable/email_icon"
+                            android:drawablePadding="10dp"
+                            android:enabled="false"
+                            android:imeOptions="actionNext"
+                            android:inputType=""
+                            android:text="@{user.cpf}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

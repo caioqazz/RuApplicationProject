@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<br.ufop.ruapplicationpassivemvc.view.MenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.ufop.ruapplicationpassivemvc.activity.fragment.MenuFragment">
+    
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--HEADER-->
+                    <RelativeLayout
+                        android:id="@+id/menu_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/yellow"
+                        android:minHeight="120dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/menu_mainbox_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/sun" />
+
+                            <TextView
+                                android:id="@+id/menu_type"
+                                style="@style/Base.TextAppearance.AppCompat.Headline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview"
+                                android:text="Almoço"
+                                android:textColor="@android:color/white"
+                                android:textSize="30dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/menu_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="5dp"
+                            android:text="Date"
+                            android:textColor="@android:color/white" />
+
+                        <Button
+                            android:id="@+id/menu_participation_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/menu_mainbox_header"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_button_commit"
+                            android:minWidth="100dp"
+                            android:text="Participar"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <!--Loading dialog-->
+                    <LinearLayout
+                        android:id="@+id/menu_loading_dialog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/menu_header"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="100dp"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                        <ProgressBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Carregando" />
+                    </LinearLayout>
+              
+                    <!-- MENU-->
+
+                    <LinearLayout
+                        android:id="@+id/menu_dishes_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/menu_header"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Principal" />
+
+                            <ImageButton
+                                android:id="@+id/menu_principal_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_principal"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/meat" />
+
+                            <TextView
+                                android:id="@+id/menu_principal_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_principal"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_principal_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_principal_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_principal" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Vegetariano" />
+
+                            <ImageButton
+                                android:id="@+id/menu_vegetariano_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_vegetariano"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/diet" />
+
+                            <TextView
+                                android:id="@+id/menu_vegetariano_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_vegetariano"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_vegetariano_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_vegetariano_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_vegetariano" />
+
+                        </RelativeLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Guarnição" />
+
+                            <ImageButton
+                                android:id="@+id/menu_guarnicao_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_guarnicao"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/pot" />
+
+                            <TextView
+                                android:id="@+id/menu_guarnicao_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_guarnicao"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_guarnicao_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_guarnicao_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_guarnicao" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Arroz" />
+
+                            <ImageButton
+                                android:id="@+id/menu_arroz_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_arroz"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/rice" />
+
+                            <TextView
+                                android:id="@+id/menu_arroz_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_arroz"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_arroz_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_arroz_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_arroz" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Feijão" />
+
+                            <ImageButton
+                                android:id="@+id/menu_feijao_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_feijao"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/beans" />
+
+                            <TextView
+                                android:id="@+id/menu_feijao_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_feijao"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_feijao_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_feijao_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_feijao" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Bebida" />
+
+                            <ImageButton
+                                android:id="@+id/menu_bebida_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_bebida"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/juice" />
+
+                            <TextView
+                                android:id="@+id/menu_bebida_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_bebida"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_bebida_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_bebida_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_bebida" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/colorSelect" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/Base.TextAppearance.AppCompat.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Sobremesa" />
+
+                            <ImageButton
+                                android:id="@+id/menu_sobremesa_edit"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/edit" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <ImageView
+                                android:id="@+id/menu_imageview_sobremesa"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/cupcake" />
+
+                            <TextView
+                                android:id="@+id/menu_sobremesa_name"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/menu_imageview_sobremesa"
+                                android:text="Não preenchido" />
+
+                            <TextView
+                                android:id="@+id/menu_sobremesa_description"
+                                style="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_sobremesa_name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/menu_imageview_sobremesa" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <!--Error Box-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/menu_error_container"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/menu_header"
+                        android:visibility="gone"
+                        android:padding="@dimen/margin_large">
+
+                        <ImageView
+                            android:contentDescription="@string/image_description_close"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:src="@drawable/close"/>
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/caption_closed"/>
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Body2"
+                            android:id="@+id/menu_close_reason"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</br.ufop.ruapplicationpassivemvc.view.MenuView>

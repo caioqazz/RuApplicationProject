@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.ufop.ruapplicationmvvm.util.VisibilityUtil" />
+
+        <import type="android.view.View" />
+
+        <import type="br.ufop.ruapplicationmvvm.util.HeaderUtil" />
+
+        <variable
+            name="type"
+            type="Integer" />
+
+        <variable
+            name="viewmodel"
+            type="br.ufop.ruapplicationmvvm.viewmodel.MenuViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/menu_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.MenuFragment">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/menu_SwipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--HEADER-->
+                        <RelativeLayout
+                            android:id="@+id/menu_header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@{HeaderUtil.isAlmoco(type) ? @color/darkYellow :  @color/night}"
+                            android:minHeight="120dp">
+
+
+                            <RelativeLayout
+                                android:id="@+id/menu_mainbox_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true">
+
+                                <ImageView
+                                    android:id="@+id/menu_imageview"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_margin="5dp"
+                                    android:src="@{HeaderUtil.isAlmoco(type) ? @drawable/sun :  @drawable/night}" />
+
+                                <TextView
+                                    android:id="@+id/menu_type"
+                                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_margin="5dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@+id/menu_imageview"
+                                    android:text="@{HeaderUtil.headerTitle(type)}"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="30dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/menu_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:text="Date"
+                                android:textColor="@android:color/white" />
+
+                            <Button
+                                android:id="@+id/menu_participation_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/menu_mainbox_header"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/rounded_button_commit"
+                                android:minWidth="100dp"
+                                android:text="Participar"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/menu_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/menu_header" />
+
+
+                        <!--Loading dialog-->
+                        <LinearLayout
+                            android:id="@+id/menu_loading_dialog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/menu_header"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="100dp"
+                            android:orientation="vertical"
+                            android:visibility="invisible">
+
+                            <ProgressBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Carregando" />
+                        </LinearLayout>
+
+                        <!-- MENU-->
+
+                        <!--Error Box-->
+                        <LinearLayout
+                            android:id="@+id/menu_error_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/menu_header"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/margin_large"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:contentDescription="@string/image_description_close"
+                                android:src="@drawable/close" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/caption_closed" />
+
+                            <TextView
+                                android:id="@+id/menu_close_reason"
+                                style="@style/TextAppearance.AppCompat.Body2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
+</layout>

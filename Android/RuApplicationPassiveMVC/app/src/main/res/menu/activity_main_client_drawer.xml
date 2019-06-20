@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_client_principal"
+            android:icon="@drawable/ic_home"
+            android:title="Principal" />
+
+        <item
+            android:id="@+id/nav_client_cardapio"
+            android:icon="@drawable/ic_menu"
+            android:title="Cardápio" />
+        <item
+            android:id="@+id/nav_client_pratos"
+            android:icon="@drawable/ic_dinner"
+            android:title="Pratos e Bebidas" />
+        <item
+            android:id="@+id/nav_client_calendario"
+            android:icon="@drawable/ic_insert_invitation_black_24dp"
+            android:title="Calendário de Funcionamento" />
+
+
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/nav_client_feedbacks"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="Feedbacks" />
+        <item
+            android:id="@+id/nav_client_aviso"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="Avisos" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3">
+        <item
+            android:id="@+id/nav_client_compartilhar"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Compartilhar"
+            />
+        <item
+            android:id="@+id/nav_client_avaliar"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Avaliar" />
+        <item
+            android:id="@+id/nav_client_sair"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Sair" />
+
+    </group>
+
+</menu>

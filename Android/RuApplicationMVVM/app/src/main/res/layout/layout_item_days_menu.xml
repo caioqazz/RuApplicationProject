@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item_days_menu_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/layout_item_days_menu_day"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_drawable"
+        android:gravity="center_horizontal|center_vertical"
+        android:maxWidth="200dp"
+        android:maxLines="1"
+        android:textColor="@android:color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/layout_item_days_menu_day"
+        android:minHeight="60dp"
+       >
+
+        <TextView
+            android:id="@+id/layout_item_days_menu_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/layout_item_days_menu_name"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"
+                 />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

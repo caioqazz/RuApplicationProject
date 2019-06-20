@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="br.ufop.ruapplicationmvvm.viewmodel.FormDishViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/form_dish_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.FormDishActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/form_dish_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="280dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxHeight="280dp"
+                        android:minWidth="280dp"
+                        android:src="@drawable/image" />
+
+                    <ImageButton
+                        android:id="@+id/form_dish_camera_button"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignRight="@+id/form_dish_imageview"
+                        android:layout_alignBottom="@+id/form_dish_imageview"
+                        android:background="@drawable/dark_yellow_camera" />
+                </RelativeLayout>
+
+
+                <EditText
+                    android:id="@+id/form_dish_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/hint_nome"
+                    android:inputType="text" />
+
+                <Spinner
+                    android:id="@+id/form_dish_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:minHeight="40dp" />
+
+                <View
+                    android:id="@+id/form_dish_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/form_dish_spinner"
+                    android:background="@color/cardview_dark_background" />
+
+                <EditText
+                    android:id="@+id/form_dish_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="top"
+                    android:hint="@string/hint_descricao"
+                    android:minLines="8" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

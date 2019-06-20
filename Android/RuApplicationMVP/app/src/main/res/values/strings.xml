@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Aplicativo RU MVP</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <!--LOGIN -->
+    <string name="err_name">Preencha o campo nome.</string>
+    <string name="err_email">Preencha o campo email corretamente.</string>
+    <string name="err_cpf">Preencha o campo CPF corretamente, sem pontos e sem hífen.</string>
+    <string name="err_password">O campo senha deve ter no mínimo 8 caracteres.</string>
+    <string name="err_password_verify">As senhas não conferem!</string>
+    <string name="label_name">Nome</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Senha</string>
+    <string name="label_cpf">CPF</string>
+    <string name="icon_text">Restaurante Universitário</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="login_button">Entrar</string>
+    <string name="register_button">Registre-se</string>
+    <string name="icon_description">Prato com garfo e faca</string>
+    <!--/LOGIN -->
+
+    <string name="error">Preencha todos os campos corretamente</string>
+
+
+    <string name="title_activity_main">Principal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_new_notice">newNoticeActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_form_dish">FormDishActivity</string>
+    <string name="dialog_waiting">Aguarde...</string>
+    <string name="dialog_action">Executando</string>
+    <string name="register_btn">Registrar</string>
+    <string name="cancel_btn">Voltar</string>
+    <string name="verify_senha">Confirmar Senha</string>
+    <string name="err_network">Sem conexão com a Internet</string>
+    <string name="title_activity_main_client">MainClientActivity</string>
+    <string name="caption_media">Média</string>
+    <string name="image_descripiton_dish">Foto do prato em questão</string>
+    <string name="reply_hint">Responda aqui ...</string>
+    <string name="image_descripiton_person">Foto da pessoa em questão</string>
+
+    <string name="caption_data">Data</string>
+    <string name="almoco">Almoço</string>
+    <string name="jantar">Jantar</string>
+    <string name="caption_status">Status</string>
+    <string name="fechado">Fechado</string>
+    <string name="aberto">Aberto</string>
+    <string name="caption_justificativa">Justificativa</string>
+    <string name="image_description_select_date_button">Botão de seleção de data</string>
+
+    <!--HINT-->
+    <string name="hint_assunto">Assunto</string>
+    <string name="hint_content">Escreva o conteúdo aqui ...</string>
+    <string name="hint_data">Selecione a data</string>
+    <string name="hint_justificativa">Digite a justificativa</string>
+    <string name="hint_refeicao">Tipo de Refeição</string>
+    <string name="hint_descricao">Descrição</string>
+    <string name="hint_nome">Nome</string>
+    <string name="caption_vizualizacao">Visualização</string>
+    <string name="caption_select_prato">Selecione o prato</string>
+    <string name="image_description_registre">Imagem de um formulário</string>
+    <string name="caption_registre">Registre-se</string>
+    <string name="caption_principal">Principal</string>
+    <string name="caption_vegetariano">Vegetariano</string>
+    <string name="caption_guarnicao">Guarnição</string>
+    <string name="caption_arroz">Arroz</string>
+    <string name="caption_feijao">Feijão</string>
+    <string name="caption_bebidas">Bebidas</string>
+    <string name="caption_sobremesa">Sobremesa</string>
+    <string name="image_description">Foto ilustrativa de suco</string>
+    <string name="image_description_pot">Foto ilustrativa de uma panela</string>
+    <string name="image_descripiton_sun">Imagem ilustrativa de um sol</string>
+    <string name="caption_total">Total</string>
+    <string name="caption_normal">Normal</string>
+    <string name="caption_carregando">Carregando...</string>
+    <string name="caption_demanda">Demanda</string>
+    <string name="image_descripiton_info">Imagem ilustrativa do tipo de aviso</string>
+    <string name="image_description_close">Imagem ilustrativa de não funcionamento do dia atual</string>
+    <string name="caption_closed">O restaurante funcionará no periodo atual.</string>
+    <string name="caption_pratos">Pratos</string>
+    <string name="hint_comentario_prato">Deixe aqui sua opinião</string>
+    <string name="checkbox_dish">Não me alimento/bebo.</string>
+    <string name="caption_salada">Salada</string>
+
+    <string name="title_activity_pos_login">PosLoginActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!--\HINT-->
+</resources>

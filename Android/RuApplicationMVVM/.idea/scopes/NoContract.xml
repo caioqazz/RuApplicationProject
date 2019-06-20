@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="NoContract" pattern="src[app]:br.ufop.ruapplicationmvvm.service.api.*||src[app]:br.ufop.ruapplicationmvvm.viewmodel.*||src[app]:br.ufop.ruapplicationmvvm.util.*||src[app]:br.ufop.ruapplicationmvvm.databinding.*||src[app]:br.ufop.ruapplicationmvvm.view.*||src[app]:br.ufop.ruapplicationmvvm.model.entity.*||src[app]:br.ufop.ruapplicationmvvm.model.result.*||src[app]:br.ufop.ruapplicationmvvm.view.adapter.*||src[app]:br.ufop.ruapplicationmvvm.model.response.*||src[app]:br.ufop.ruapplicationmvvm.view.fragment.*||src[app]:br.ufop.ruapplicationmvvm.model.info.*||src[app]:br.ufop.ruapplicationmvvm.*||src[app]:br.ufop.ruapplicationmvvm.generated.callback.*||src[app]:br.ufop.ruapplicationmvvm.service.*" />
+</component>

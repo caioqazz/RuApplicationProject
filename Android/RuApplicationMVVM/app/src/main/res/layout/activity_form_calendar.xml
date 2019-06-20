@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="calendarform"
+            type="br.ufop.ruapplicationmvvm.model.info.CalendarForm" />
+
+        <variable
+            name="viewmodel"
+            type="br.ufop.ruapplicationmvvm.viewmodel.FormCalendarViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/form_calendar_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.FormCalendarActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@={calendarform.date}" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:gravity="center_horizontal">
+
+
+                    <TextView
+                        android:id="@+id/form_calendar_date"
+                        style="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/hint_data" />
+
+                    <ImageButton
+                        android:id="@+id/form_calendar_btn_date"
+                        android:layout_width="@dimen/image_size_medium"
+                        android:layout_height="@dimen/image_size_medium"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@+id/form_calendar_date"
+                        android:background="@drawable/calendar"
+                        android:contentDescription="@string/image_description_select_date_button" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorSelect" />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@string/hint_refeicao" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/form_calendar_type_lunch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_small"
+                        android:checked="true"
+                        android:text="@string/almoco"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/form_calendar_type_dinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small"
+                        android:text="@string/jantar"
+                        android:textSize="16sp" />
+                </RadioGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorSelect" />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@string/caption_status" />
+
+                <Switch
+                    android:id="@+id/form_calendar_switch_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:checked="false"
+                    android:showText="true"
+                    android:switchMinWidth="300dp"
+                    android:switchTextAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:textOff="@string/fechado"
+                    android:textOn="@string/aberto" />
+
+                <LinearLayout
+                    android:id="@+id/form_calendar_reason_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorSelect" />
+
+                    <TextView
+                        style="@style/Base.TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:text="@string/caption_justificativa" />
+
+                    <EditText
+                        android:id="@+id/form_calendar_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:gravity="top"
+                        android:hint="@string/hint_justificativa"
+                        android:minLines="5"
+                        android:text="@={calendarform.reason}" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>
